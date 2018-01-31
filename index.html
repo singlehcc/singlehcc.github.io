@@ -61,6 +61,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-书写高性能的JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/31/书写高性能的JavaScript/" class="article-date">
+  <time datetime="2018-01-31T07:00:00.000Z" itemprop="datePublished">2018-01-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/31/书写高性能的JavaScript/">JavaScript性能优化与分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>导语：前端工程师不但要保证完成界面的规划与开发，并且同时需要保证代码的质量，其中Javscript的运行速度则变得非常重要，本期从浏览器、代码层面入手，结合了开发者工具进行分析, 总结了一些常用的优化手段和法则.</p>
+</blockquote>
+<h2 id="JavaScript-性能优化"><a href="#JavaScript-性能优化" class="headerlink" title="JavaScript 性能优化"></a>JavaScript 性能优化</h2><blockquote>
+<p>@来源： yj1028.me 2017.10.28    <span style="padding: 10px"></span> <a href="https://juejin.im/entry/59e6f1336fb9a0450808bdc3" target="_blank" rel="noopener">阅读原文 -&gt;</a></p>
+</blockquote>
+<p>本文从chrome浏览器下分析一个js库的执行时间（分析的方式值得借鉴），通过浏览器可以很直观的看出该js的解析时间、执行时间和占用内存的情况。同时给出一些参考值，即超出该参考值意味着该js需要优化。</p>
+<h2 id="分析运行时性能"><a href="#分析运行时性能" class="headerlink" title="分析运行时性能"></a>分析运行时性能</h2><blockquote>
+<p>@来源： Chrome 开发者工具中文文档    <span style="padding: 10px"></span> <a href="http://www.css88.com/doc/chrome-devtools/rendering-tools/" target="_blank" rel="noopener">阅读原文 -&gt;</a></p>
+</blockquote>
+<p>本文通过Chrome分析运行时的性能，得出如下结论：</p>
+<ul>
+<li>不要编写强制浏览器重新计算布局的JavaScript。分离读写函数，并首先执行读取。</li>
+<li>不要使您的CSS过于复杂。使用更少的CSS和保持你的CSS选择器简单。尽可能多避免layout。</li>
+<li>总是选择不触发layout的CSS。</li>
+<li>绘画可能占用比任何其他渲染活动更多的时间。注意绘制瓶颈。</li>
+</ul>
+<h2 id="js性能优化的小知识"><a href="#js性能优化的小知识" class="headerlink" title="js性能优化的小知识"></a>js性能优化的小知识</h2><blockquote>
+<p>@来源： 静逸   2015-05-26    <span style="padding: 10px"></span> <a href="https://www.cnblogs.com/liyunhua/p/4529086.html#_label21" target="_blank" rel="noopener">阅读原文 -&gt;</a></p>
+</blockquote>
+<p>本文主要从js代码层面来进行性能优化，对于平时coding具有参考价值。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/31/书写高性能的JavaScript/" data-id="cjd2q7ryj000040us2ai5xc90" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-如何解决dva-cli生成的工程没有ant-design样式问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/" class="article-date">
@@ -91,33 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/" data-id="cjd2q1ix00001ngusorlq585c" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-书写高性能的JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/23/书写高性能的JavaScript/" class="article-date">
-  <time datetime="2018-01-23T03:38:30.508Z" itemprop="datePublished">2018-01-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/23/书写高性能的JavaScript/" data-id="cjd2q1iwe0000ngusep91r45n" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/" data-id="cjd2q7rz5000240us3ezkwqv1" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -197,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/18/如何构建github-hexo博客/" data-id="cjd2q1ixt0002ngusflzy9gwo" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/18/如何构建github-hexo博客/" data-id="cjd2q7rys000140usm0oomimh" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -238,11 +269,11 @@
       <ul>
         
           <li>
-            <a href="/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/">如何解决dva-cli生成的工程没有ant-design样式问题</a>
+            <a href="/2018/01/31/书写高性能的JavaScript/">JavaScript性能优化与分析</a>
           </li>
         
           <li>
-            <a href="/2018/01/23/书写高性能的JavaScript/">(no title)</a>
+            <a href="/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/">如何解决dva-cli生成的工程没有ant-design样式问题</a>
           </li>
         
           <li>
