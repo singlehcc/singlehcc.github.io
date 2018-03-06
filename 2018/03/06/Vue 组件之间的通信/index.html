@@ -5,18 +5,18 @@
   
 
   
-  <title>如何解决dva-cli生成的工程没有ant-design样式问题 | Charlie hua的博客</title>
+  <title>Vue组件之间的通信 | Charlie hua的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前用dva-cli脚手架搭建react工程，引入了ant,发现没有样式应用,但元素的class已经添加。网上搜了，相应的资料寥寥无几。 解决方案配置.roadhogrc文件roadhogrc初始化文件内容为12345678910111213141516&amp;#123;&quot;entry&quot;: &quot;src/index.js&quot;,&quot;env&quot;: &amp;#123;  &quot;development&quot;: &amp;#123;    &quot;ex">
+  <meta name="description" content="在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式 场景一解决方案配置.roadhogrc文件roadhogrc初始化文件内容为12345678910111213141516&amp;#123;&quot;entry&quot;: &quot;src/index.js&quot;,&quot;env&quot;: &amp;#123;  &quot;development&quot;: &amp;#123;    &quot;extraBabelPlugins&quot;: [">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何解决dva-cli生成的工程没有ant-design样式问题">
-<meta property="og:url" content="http://yoursite.com/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/index.html">
+<meta property="og:title" content="Vue组件之间的通信">
+<meta property="og:url" content="http://yoursite.com/2018/03/06/Vue 组件之间的通信/index.html">
 <meta property="og:site_name" content="Charlie hua的博客">
-<meta property="og:description" content="之前用dva-cli脚手架搭建react工程，引入了ant,发现没有样式应用,但元素的class已经添加。网上搜了，相应的资料寥寥无几。 解决方案配置.roadhogrc文件roadhogrc初始化文件内容为12345678910111213141516&amp;#123;&quot;entry&quot;: &quot;src/index.js&quot;,&quot;env&quot;: &amp;#123;  &quot;development&quot;: &amp;#123;    &quot;ex">
-<meta property="og:updated_time" content="2018-01-24T03:52:27.169Z">
+<meta property="og:description" content="在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式 场景一解决方案配置.roadhogrc文件roadhogrc初始化文件内容为12345678910111213141516&amp;#123;&quot;entry&quot;: &quot;src/index.js&quot;,&quot;env&quot;: &amp;#123;  &quot;development&quot;: &amp;#123;    &quot;extraBabelPlugins&quot;: [">
+<meta property="og:updated_time" content="2018-03-06T09:43:51.096Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何解决dva-cli生成的工程没有ant-design样式问题">
-<meta name="twitter:description" content="之前用dva-cli脚手架搭建react工程，引入了ant,发现没有样式应用,但元素的class已经添加。网上搜了，相应的资料寥寥无几。 解决方案配置.roadhogrc文件roadhogrc初始化文件内容为12345678910111213141516&amp;#123;&quot;entry&quot;: &quot;src/index.js&quot;,&quot;env&quot;: &amp;#123;  &quot;development&quot;: &amp;#123;    &quot;ex">
+<meta name="twitter:title" content="Vue组件之间的通信">
+<meta name="twitter:description" content="在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式 场景一解决方案配置.roadhogrc文件roadhogrc初始化文件内容为12345678910111213141516&amp;#123;&quot;entry&quot;: &quot;src/index.js&quot;,&quot;env&quot;: &amp;#123;  &quot;development&quot;: &amp;#123;    &quot;extraBabelPlugins&quot;: [">
   
     <link rel="alternate" href="/atom.xml" title="Charlie hua的博客" type="application/atom+xml">
   
@@ -63,10 +63,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-如何解决dva-cli生成的工程没有ant-design样式问题" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Vue 组件之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/" class="article-date">
-  <time datetime="2018-01-24T03:42:56.000Z" itemprop="datePublished">2018-01-24</time>
+    <a href="/2018/03/06/Vue 组件之间的通信/" class="article-date">
+  <time datetime="2018-03-06T03:42:56.000Z" itemprop="datePublished">2018-03-06</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      如何解决dva-cli生成的工程没有ant-design样式问题
+      Vue组件之间的通信
     </h1>
   
 
@@ -85,15 +85,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前用<code>dva-cli</code>脚手架搭建react工程，引入了<code>ant</code>,发现没有样式应用,但元素的<code>class</code>已经添加。网上搜了，相应的资料寥寥无几。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h4 id="配置-roadhogrc文件"><a href="#配置-roadhogrc文件" class="headerlink" title="配置.roadhogrc文件"></a>配置.roadhogrc文件</h4><p><code>roadhogrc</code>初始化文件内容为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">"entry"</span>: <span class="string">"src/index.js"</span>,</span><br><span class="line"><span class="string">"env"</span>: &#123;</span><br><span class="line">  <span class="string">"development"</span>: &#123;</span><br><span class="line">    <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">      <span class="string">"dva-hmr"</span>,</span><br><span class="line">      <span class="string">"transform-runtime"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"production"</span>: &#123;</span><br><span class="line">    <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">      <span class="string">"transform-runtime"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式</p>
+<h2 id="场景一"><a href="#场景一" class="headerlink" title="场景一"></a>场景一</h2><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h4 id="配置-roadhogrc文件"><a href="#配置-roadhogrc文件" class="headerlink" title="配置.roadhogrc文件"></a>配置.roadhogrc文件</h4><p><code>roadhogrc</code>初始化文件内容为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">"entry"</span>: <span class="string">"src/index.js"</span>,</span><br><span class="line"><span class="string">"env"</span>: &#123;</span><br><span class="line">  <span class="string">"development"</span>: &#123;</span><br><span class="line">    <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">      <span class="string">"dva-hmr"</span>,</span><br><span class="line">      <span class="string">"transform-runtime"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"production"</span>: &#123;</span><br><span class="line">    <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">      <span class="string">"transform-runtime"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>此时没引入antd的样式，修改配置增加样式引入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"entry"</span>: <span class="string">"src/index.js"</span>,</span><br><span class="line">  <span class="string">"env"</span>: &#123;</span><br><span class="line">    <span class="string">"development"</span>: &#123;</span><br><span class="line">      <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">        <span class="string">"dva-hmr"</span>,</span><br><span class="line">        <span class="string">"transform-runtime"</span>,</span><br><span class="line">        [<span class="string">"import"</span>, &#123; <span class="string">"libraryName"</span>: <span class="string">"antd"</span>, <span class="string">"style"</span>: <span class="literal">true</span> &#125;]</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"production"</span>: &#123;</span><br><span class="line">      <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">        <span class="string">"transform-runtime"</span>,</span><br><span class="line">        [<span class="string">"import"</span>, &#123; <span class="string">"libraryName"</span>: <span class="string">"antd"</span>, <span class="string">"style"</span>: <span class="literal">true</span> &#125;]</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>添加完成后，<code>npm run start</code>，发现有报错，报错内容为<br><code>This is the error: Unknown plugin &quot;import&quot; specified in &quot;[..]/.babelrc&quot;</code>。<br>原因： 没有安装<code>babel-plugin-import</code>依赖。<br>解决： <code>npm install babel-plugin-import --save-dev</code>即可。<br>最后 <code>npm run start</code>，发现样式已添加。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/" data-id="cjefgzheh0002pkusgpb3ucb3" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/06/Vue 组件之间的通信/" data-id="cjefgzhe20000pkuszbgbl6jp" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -102,19 +102,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/01/31/书写高性能的JavaScript/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          JavaScript性能优化与分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/18/如何构建github-hexo博客/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/01/31/书写高性能的JavaScript/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">快速构建github+hexo博客</div>
+      <div class="article-nav-title">JavaScript性能优化与分析</div>
     </a>
   
 </nav>

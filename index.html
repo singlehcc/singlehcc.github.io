@@ -61,6 +61,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Vue 组件之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/06/Vue 组件之间的通信/" class="article-date">
+  <time datetime="2018-03-06T03:42:56.000Z" itemprop="datePublished">2018-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/06/Vue 组件之间的通信/">Vue组件之间的通信</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式</p>
+<h2 id="场景一"><a href="#场景一" class="headerlink" title="场景一"></a>场景一</h2><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h4 id="配置-roadhogrc文件"><a href="#配置-roadhogrc文件" class="headerlink" title="配置.roadhogrc文件"></a>配置.roadhogrc文件</h4><p><code>roadhogrc</code>初始化文件内容为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">"entry"</span>: <span class="string">"src/index.js"</span>,</span><br><span class="line"><span class="string">"env"</span>: &#123;</span><br><span class="line">  <span class="string">"development"</span>: &#123;</span><br><span class="line">    <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">      <span class="string">"dva-hmr"</span>,</span><br><span class="line">      <span class="string">"transform-runtime"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"production"</span>: &#123;</span><br><span class="line">    <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">      <span class="string">"transform-runtime"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此时没引入antd的样式，修改配置增加样式引入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"entry"</span>: <span class="string">"src/index.js"</span>,</span><br><span class="line">  <span class="string">"env"</span>: &#123;</span><br><span class="line">    <span class="string">"development"</span>: &#123;</span><br><span class="line">      <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">        <span class="string">"dva-hmr"</span>,</span><br><span class="line">        <span class="string">"transform-runtime"</span>,</span><br><span class="line">        [<span class="string">"import"</span>, &#123; <span class="string">"libraryName"</span>: <span class="string">"antd"</span>, <span class="string">"style"</span>: <span class="literal">true</span> &#125;]</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"production"</span>: &#123;</span><br><span class="line">      <span class="string">"extraBabelPlugins"</span>: [</span><br><span class="line">        <span class="string">"transform-runtime"</span>,</span><br><span class="line">        [<span class="string">"import"</span>, &#123; <span class="string">"libraryName"</span>: <span class="string">"antd"</span>, <span class="string">"style"</span>: <span class="literal">true</span> &#125;]</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>添加完成后，<code>npm run start</code>，发现有报错，报错内容为<br><code>This is the error: Unknown plugin &quot;import&quot; specified in &quot;[..]/.babelrc&quot;</code>。<br>原因： 没有安装<code>babel-plugin-import</code>依赖。<br>解决： <code>npm install babel-plugin-import --save-dev</code>即可。<br>最后 <code>npm run start</code>，发现样式已添加。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/06/Vue 组件之间的通信/" data-id="cjefgzhe20000pkuszbgbl6jp" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-书写高性能的JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/31/书写高性能的JavaScript/" class="article-date">
@@ -108,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/31/书写高性能的JavaScript/" data-id="cjd2q7ryj000040us2ai5xc90" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/31/书写高性能的JavaScript/" data-id="cjefgzhec0001pkusjdcby7vo" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -148,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/" data-id="cjd2q7rz5000240us3ezkwqv1" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/" data-id="cjefgzheh0002pkusgpb3ucb3" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -228,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/18/如何构建github-hexo博客/" data-id="cjd2q7rys000140usm0oomimh" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/18/如何构建github-hexo博客/" data-id="cjefgzhej0003pkusic33vtiq" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -256,7 +296,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -267,6 +307,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/06/Vue 组件之间的通信/">Vue组件之间的通信</a>
+          </li>
         
           <li>
             <a href="/2018/01/31/书写高性能的JavaScript/">JavaScript性能优化与分析</a>
