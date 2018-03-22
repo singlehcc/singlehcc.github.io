@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript,性能," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="导语：前端工程师不但要保证完成界面的规划与开发，并且同时需要保证代码的质量，其中Javscript的运行速度则变得非常重要，本期从浏览器、代码层面入手，结合了开发者工具进行分析, 总结了一些常用的优化手段和法则.  JavaScript 性能优化 @来源： yj1028.me 2017.10.28     阅读原文 -&amp;gt;  本文从chrome浏览器下分析一个js库的执行时间（分析的方式值得">
-<meta name="keywords" content="JavaScript,性能">
+<meta name="description" content="git是什么？Git是目前世界上最先进的分布式版本控制系统git可以用来做什么？普遍的认知是，git是管理「代码的历史记录」的工具。其实git可以做的事情有很多，写书、写论文等">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript性能优化与分析">
-<meta property="og:url" content="http://yoursite.com/2018/01/31/书写高性能的JavaScript/index.html">
+<meta property="og:title" content="git使用实践">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/git使用实践/index.html">
 <meta property="og:site_name" content="Charlie hua的博客">
-<meta property="og:description" content="导语：前端工程师不但要保证完成界面的规划与开发，并且同时需要保证代码的质量，其中Javscript的运行速度则变得非常重要，本期从浏览器、代码层面入手，结合了开发者工具进行分析, 总结了一些常用的优化手段和法则.  JavaScript 性能优化 @来源： yj1028.me 2017.10.28     阅读原文 -&amp;gt;  本文从chrome浏览器下分析一个js库的执行时间（分析的方式值得">
+<meta property="og:description" content="git是什么？Git是目前世界上最先进的分布式版本控制系统git可以用来做什么？普遍的认知是，git是管理「代码的历史记录」的工具。其实git可以做的事情有很多，写书、写论文等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-22T01:59:21.024Z">
+<meta property="og:updated_time" content="2018-03-22T08:19:59.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript性能优化与分析">
-<meta name="twitter:description" content="导语：前端工程师不但要保证完成界面的规划与开发，并且同时需要保证代码的质量，其中Javscript的运行速度则变得非常重要，本期从浏览器、代码层面入手，结合了开发者工具进行分析, 总结了一些常用的优化手段和法则.  JavaScript 性能优化 @来源： yj1028.me 2017.10.28     阅读原文 -&amp;gt;  本文从chrome浏览器下分析一个js库的执行时间（分析的方式值得">
+<meta name="twitter:title" content="git使用实践">
+<meta name="twitter:description" content="git是什么？Git是目前世界上最先进的分布式版本控制系统git可以用来做什么？普遍的认知是，git是管理「代码的历史记录」的工具。其实git可以做的事情有很多，写书、写论文等">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/31/书写高性能的JavaScript/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/22/git使用实践/"/>
 
 
 
 
 
-  <title>JavaScript性能优化与分析 | Charlie hua的博客</title>
+  <title>git使用实践 | Charlie hua的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/31/书写高性能的JavaScript/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/git使用实践/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huacc">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript性能优化与分析</h1>
+          <h1 class="post-title" itemprop="name headline">git使用实践</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-31T15:00:00+08:00">
-                2018-01-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T10:25:44+08:00">
+                2018-03-22
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
                   </a>
                 </span>
 
@@ -342,27 +342,7 @@
       
 
       
-        <blockquote>
-<p>导语：前端工程师不但要保证完成界面的规划与开发，并且同时需要保证代码的质量，其中Javscript的运行速度则变得非常重要，本期从浏览器、代码层面入手，结合了开发者工具进行分析, 总结了一些常用的优化手段和法则.</p>
-</blockquote>
-<h2 id="JavaScript-性能优化"><a href="#JavaScript-性能优化" class="headerlink" title="JavaScript 性能优化"></a>JavaScript 性能优化</h2><blockquote>
-<p>@来源： yj1028.me 2017.10.28    <span style="padding: 10px"></span> <a href="https://juejin.im/entry/59e6f1336fb9a0450808bdc3" target="_blank" rel="noopener">阅读原文 -&gt;</a></p>
-</blockquote>
-<p>本文从chrome浏览器下分析一个js库的执行时间（分析的方式值得借鉴），通过浏览器可以很直观的看出该js的解析时间、执行时间和占用内存的情况。同时给出一些参考值，即超出该参考值意味着该js需要优化。</p>
-<h2 id="分析运行时性能"><a href="#分析运行时性能" class="headerlink" title="分析运行时性能"></a>分析运行时性能</h2><blockquote>
-<p>@来源： Chrome 开发者工具中文文档    <span style="padding: 10px"></span> <a href="http://www.css88.com/doc/chrome-devtools/rendering-tools/" target="_blank" rel="noopener">阅读原文 -&gt;</a></p>
-</blockquote>
-<p>本文通过Chrome分析运行时的性能，得出如下结论：</p>
-<ul>
-<li>不要编写强制浏览器重新计算布局的JavaScript。分离读写函数，并首先执行读取。</li>
-<li>不要使您的CSS过于复杂。使用更少的CSS和保持你的CSS选择器简单。尽可能多避免layout。</li>
-<li>总是选择不触发layout的CSS。</li>
-<li>绘画可能占用比任何其他渲染活动更多的时间。注意绘制瓶颈。</li>
-</ul>
-<h2 id="js性能优化的小知识"><a href="#js性能优化的小知识" class="headerlink" title="js性能优化的小知识"></a>js性能优化的小知识</h2><blockquote>
-<p>@来源： 静逸   2015-05-26    <span style="padding: 10px"></span> <a href="https://www.cnblogs.com/liyunhua/p/4529086.html#_label21" target="_blank" rel="noopener">阅读原文 -&gt;</a></p>
-</blockquote>
-<p>本文主要从js代码层面来进行性能优化，对于平时coding具有参考价值。</p>
+        <p>git是什么？<br>Git是目前世界上最先进的分布式版本控制系统<br>git可以用来做什么？<br>普遍的认知是，git是管理「代码的历史记录」的工具。其实git可以做的事情有很多，写书、写论文等</p>
 
       
     </div>
@@ -380,9 +360,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
-            <a href="/tags/性能/" rel="tag"># 性能</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -395,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/24/如何解决dva-cli生成的工程没有ant-design样式问题/" rel="next" title="如何解决dva-cli生成的工程没有ant-design样式问题">
-                <i class="fa fa-chevron-left"></i> 如何解决dva-cli生成的工程没有ant-design样式问题
+              <a href="/2018/03/19/混合开发遇到问题总结/" rel="next" title="混合开发遇到问题总结">
+                <i class="fa fa-chevron-left"></i> 混合开发遇到问题总结
               </a>
             
           </div>
@@ -404,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/06/Vue 组件之间的通信/" rel="prev" title="Vue组件之间的通信">
-                Vue组件之间的通信 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -459,17 +433,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -551,22 +516,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-性能优化"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析运行时性能"><span class="nav-number">2.</span> <span class="nav-text">分析运行时性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js性能优化的小知识"><span class="nav-number">3.</span> <span class="nav-text">js性能优化的小知识</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

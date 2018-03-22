@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue,组件通信," />
 
 
 
@@ -79,21 +79,22 @@
 
 
 
-<meta name="description" content="在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式 场景点击编辑需要打开一个模态框，需要将显示隐藏的状态传给子组件点击模态框中的取消、确定、关闭按钮需要将模态框隐藏掉，此时需要把当前状态传给父组件。  方法一(采用props通信)父组件通过isVisible的props 传递给子组件，点击编辑 按钮时,改变当前状态 12345...handleEdit() &amp;#1">
+<meta name="description" content="在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式 场景点击编辑需要打开一个模态框，需要将显示隐藏的状态传给子组件点击模态框中的取消、确定、关闭按钮需要将模态框隐藏掉，此时需要把当前状态传给父组件。 方法一(采用props通信)父组件通过isVisible的props 传递给子组件，点击编辑 按钮时,改变当前状态 12345...handleEdit() &amp;#12">
+<meta name="keywords" content="vue,组件通信">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue组件之间的通信">
 <meta property="og:url" content="http://yoursite.com/2018/03/06/Vue 组件之间的通信/index.html">
 <meta property="og:site_name" content="Charlie hua的博客">
-<meta property="og:description" content="在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式 场景点击编辑需要打开一个模态框，需要将显示隐藏的状态传给子组件点击模态框中的取消、确定、关闭按钮需要将模态框隐藏掉，此时需要把当前状态传给父组件。  方法一(采用props通信)父组件通过isVisible的props 传递给子组件，点击编辑 按钮时,改变当前状态 12345...handleEdit() &amp;#1">
+<meta property="og:description" content="在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式 场景点击编辑需要打开一个模态框，需要将显示隐藏的状态传给子组件点击模态框中的取消、确定、关闭按钮需要将模态框隐藏掉，此时需要把当前状态传给父组件。 方法一(采用props通信)父组件通过isVisible的props 传递给子组件，点击编辑 按钮时,改变当前状态 12345...handleEdit() &amp;#12">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/03/06/images/edit.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/03/06/images/modal.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/03/06/images/components.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/03/06/images/dialog-html.jpg">
-<meta property="og:updated_time" content="2018-03-08T06:14:21.361Z">
+<meta property="og:updated_time" content="2018-03-22T02:00:03.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue组件之间的通信">
-<meta name="twitter:description" content="在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式 场景点击编辑需要打开一个模态框，需要将显示隐藏的状态传给子组件点击模态框中的取消、确定、关闭按钮需要将模态框隐藏掉，此时需要把当前状态传给父组件。  方法一(采用props通信)父组件通过isVisible的props 传递给子组件，点击编辑 按钮时,改变当前状态 12345...handleEdit() &amp;#1">
+<meta name="twitter:description" content="在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式 场景点击编辑需要打开一个模态框，需要将显示隐藏的状态传给子组件点击模态框中的取消、确定、关闭按钮需要将模态框隐藏掉，此时需要把当前状态传给父组件。 方法一(采用props通信)父组件通过isVisible的props 传递给子组件，点击编辑 按钮时,改变当前状态 12345...handleEdit() &amp;#12">
 <meta name="twitter:image" content="http://yoursite.com/2018/03/06/images/edit.jpg">
 
 
@@ -297,6 +298,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -325,7 +348,7 @@
 
       
         <p>在项目中遇到vue组件的通信的问题，本文从实际项目入手，讲解vue组件通信的几种方式</p>
-<h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p><img src="../images/edit.jpg" alt="new repository"><br>点击编辑需要打开一个模态框，需要将显示隐藏的状态传给子组件<br><img src="../images/modal.jpg" alt="new repository"><br>点击模态框中的取消、确定、关闭按钮需要将模态框隐藏掉，此时需要把当前状态传给父组件。<br><img src="../images/components.jpg" alt="new repository"> </p>
+<h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p><img src="../images/edit.jpg" alt="new repository"><br>点击编辑需要打开一个模态框，需要将显示隐藏的状态传给子组件<br><img src="../images/modal.jpg" alt="new repository"><br>点击模态框中的取消、确定、关闭按钮需要将模态框隐藏掉，此时需要把当前状态传给父组件。<br><img src="../images/components.jpg" alt="new repository"></p>
 <h2 id="方法一-采用props通信"><a href="#方法一-采用props通信" class="headerlink" title="方法一(采用props通信)"></a>方法一(采用props通信)</h2><p>父组件通过<code>isVisible</code>的<code>props</code> 传递给子组件，点击<code>编辑</code> 按钮时,改变当前状态</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">handleEdit() &#123;</span><br><span class="line">  <span class="keyword">this</span>.editTableVisible = <span class="literal">true</span>;</span><br><span class="line">&#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>子组件接收到<code>props</code>，<br><img src="../images/dialog-html.jpg" alt="new repository"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">props: &#123;</span><br><span class="line">  isVisible: &#123;</span><br><span class="line">    type: <span class="built_in">Boolean</span>,</span><br><span class="line">    <span class="keyword">default</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  changeVisible: &#123;</span><br><span class="line">    type: <span class="built_in">Function</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
@@ -348,6 +371,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/组件通信/" rel="tag"># 组件通信</a>
+          
+        </div>
       
 
       
@@ -447,20 +478,60 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/singlehcc" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="hcc995261336" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微信</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -514,7 +585,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by"><a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 个人专属</div>
 
 
 
@@ -522,7 +593,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">博客 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
